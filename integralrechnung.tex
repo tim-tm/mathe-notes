@@ -1,0 +1,43 @@
+\chapter{Integralrechnung}
+
+\section{Stammfunktionen}
+
+\begin{flushleft}
+    Stammfunktionen sind Funktionen, die eine Funktion $f$ ergeben, wenn man sie ableitet.
+    Also gilt: $F'(x)=f(x)$.
+
+    Allgemein gilt die folgende Regel.
+    \begin{align}
+        f(x)&=x^n \\
+        F(x)&=\frac{x^{n+1}}{n+1}+C, n \in \mathbf{R} - \{-1\}
+    \end{align}
+    Wenn eine Funktion abgeleitet wird fällt jede Konstante weg, daher gibt es unendlich viele Stammfunktionen, die Konstante wird mit $C$ dargestellt.
+\end{flushleft}
+
+\section{Bestimmte Integrale}
+
+\begin{flushleft}
+    Bei bestimmten Integralen ist immer klar, welcher Intervall gesucht ist.
+    Also gilt für ein Integral in dem Intervall $[a;b]$ die folgende Formel.
+    \begin{align}
+        \int_{a}^{b} f(x) \ dx = [F(x)]_{a}^{b}
+    \end{align}
+    Außerdem ist die Integralrechnung keine Flächenberechnung, daher werden oft Absolutbeträge genutzt. Damit wird das Ergebnis eines Integrals immer positiv.
+    Die Definition des Absolutbetrags sieht aus wie folgt.
+    \[
+        \mid x \mid =
+        \begin{cases}
+            x, &\text{wenn } x \geq 0 \\
+            -x, &\text{sonst}
+        \end{cases}
+    \]
+\end{flushleft}
+
+\section{Flächen zwischen zwei Funktionen}
+
+\begin{flushleft}
+    Um die Fläche zwischen zwei Funktionen $f$ und $g$ ($f \geq g$) im Intervall $[a;b]$ zu berechnen nutzt man meist die folgende Formel.
+    \begin{align}
+        \int_{a}^{b} [f(x)-g(x)] \ dx
+    \end{align}
+\end{flushleft}
