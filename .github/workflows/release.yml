@@ -1,0 +1,25 @@
+name: "tagged-release"
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  tagged-release:
+    name: "Tagged Release"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - name: "Setup latex"
+        run: sudo apt-get -y update && sudo apt-get -y install texlive-full
+
+      - name: "Build & test"
+        run: pdflatex --output-dir=build mathenotes.tex
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            build/mathenotes.pdf

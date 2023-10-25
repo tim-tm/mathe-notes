@@ -17,13 +17,13 @@
 \section{Bestimmte Integrale}
 
 \begin{flushleft}
-    Bei bestimmten Integralen ist immer klar, welcher Intervall gesucht ist.
-    Also gilt für ein Integral in dem Intervall $[a;b]$ die folgende Formel.
+    Bei bestimmten Integralen ist immer klar, welches Intervall gesucht ist.
+    Also gilt für ein Integral in dem Intervall $[a;b]$ diese Formel:
     \begin{align}
         \int_{a}^{b} f(x) \ dx = [F(x)]_{a}^{b}
     \end{align}
     Außerdem ist die Integralrechnung keine Flächenberechnung, daher werden oft Absolutbeträge genutzt. Damit wird das Ergebnis eines Integrals immer positiv.
-    Die Definition des Absolutbetrags sieht aus wie folgt.
+    Die Definition des Absolutbetrags sieht so aus:
     \[
         \mid x \mid =
         \begin{cases}
@@ -36,8 +36,36 @@
 \section{Flächen zwischen zwei Funktionen}
 
 \begin{flushleft}
-    Um die Fläche zwischen zwei Funktionen $f$ und $g$ ($f \geq g$) im Intervall $[a;b]$ zu berechnen nutzt man meist die folgende Formel.
+    Um die Fläche zwischen den beiden Funktionen $f$ und $g$ ($f \geq g$) im Intervall $[a;b]$ zu berechnen nutzt man diese Formel:
     \begin{align}
         \int_{a}^{b} [f(x)-g(x)] \ dx
     \end{align}
+\end{flushleft}
+
+\section{Mittelwerte von Funktionen}
+
+\begin{flushleft}
+    \textbf{diskrete Mittelwerte}: \newline
+    Es wird ein Mittelwert aus einer Menge von Zahlen gebildet. \newline
+    \begin{align}
+        \{1,3&,5,4\} \\
+        \frac{1+3+5+4}{4}&=\frac{13}{4}=3.25
+    \end{align}
+    \newline
+    \textbf{kontinuierliche Mittelwerte}: \newline
+    Der Mittelwert wird aus Werten einer Funktion bestimmt. \newline
+    \begin{align}
+        \bar{m}=\frac{1}{b-a}\int_{a}^{b} f(x) \ dx
+    \end{align}
+\end{flushleft}
+
+\section{Rekonstruktion von Beständen}
+
+\begin{flushleft}
+    Bei diesem Aufgabentyp hat man immer eine Funktion (hier: $f$) gegeben, die die momentane Änderungsrate beschreiben soll, also wie stark etwas ansteigt oder fällt. Um alle Teilaufgaben vernünftig zu lösen muss man erstmal die Stammfunktion bestimmen:
+    \begin{align}
+        f(x)&=F'(x) \\
+        F(x)&=\int f(x) \ dx
+    \end{align}
+    Die Konstante $C$, die beim integrieren erscheint sollte in der Aufgabenstellung gegeben sein.
 \end{flushleft}
