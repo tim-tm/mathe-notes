@@ -81,3 +81,112 @@
         V=\pi\int_{a}^{b}[f(x)]^2 \ dx
     \end{align}
 \end{flushleft}
+
+\section{Uneigentliche Integrale}
+
+\begin{flushleft}
+    Uneigentliche Integrale sind bestimmte Integrale mit komplizierteren Integrationsgrenzen.
+    Oft wird $-\infty$ oder $+\infty$ in die Integrationsgrenzen eingebaut, es können jedoch auch Integrale mit richtigen Zahlen uneigentlich sein.
+\end{flushleft}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+        xmin=0,
+        xmax=5,
+        ymax=5,
+        ymin=0,
+        domain=0.05:5,
+        samples=100,
+        axis y line=left,
+        axis x line=bottom,
+        restrict y to domain=0:5
+        %unbound coords=discard,
+    ]
+    \addplot[red,ultra thick,name path=A] ({\x},{1/((\x)*(\x))});
+    \addlegendentry{\(f(x)=\frac{1}{x^2}\)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{flushleft}
+    Hier sieht man den Plot von $f(x)=\frac{1}{x^2}$.
+    Es lässt sich relativ gut erkennen, dass der Wert der Funktion immer größer wird, umso näher man der Y-Achse kommt.
+    Entfernt man sich also von der Y-Achse, wird der Wert immer kleiner.
+    Mathematisch lässt sich das so ausdrücken:
+    \begin{align}
+        \lim_{x \to 0} f(x) &= \infty \\
+        \lim_{x \to \infty} f(x) &= 0 \\
+        \lim_{x \to -\infty} f(x) &= 0
+    \end{align}
+    Diese Grenzen muss man beachten, wenn man uneigentliche Integrale, wie beispielsweise dieses Integral ausrechnen möchte.
+    \begin{align}
+        &\int_{1}^{\infty} f(x) \ dx
+    \end{align}
+    Mit diesem Integral würde man die folgende Fläche berechnen:
+\end{flushleft}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+        xmin=0,
+        xmax=5,
+        ymax=5,
+        ymin=0,
+        domain=0.05:5,
+        samples=100,
+        axis y line=left,
+        axis x line=bottom,
+        restrict y to domain=0:5
+        %unbound coords=discard,
+    ]
+    \addplot[red,ultra thick,name path=A] ({\x},{1/((\x)*(\x))});
+    \addlegendentry{\(f(x)=\frac{1}{x^2}\)};
+    
+    \addplot[draw=none,name path=B] {0};
+    \addplot[red,opacity=0.3] fill between[of=A and B,soft clip={domain=1:5}];
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{flushleft}
+    Wenn man versucht dieses Integral zu berechnen fällt eine Besonderheit auf.
+    \begin{align}
+        &\int_{1}^{\infty} f(x) \ dx \\
+        &\int_{1}^{\infty} \frac{1}{x^2} \ dx \\
+        &\int_{1}^{\infty} x^{-2} \ dx \\
+        &\left[\frac{x^{-1}}{-1}\right]_{1}^{\infty} \\
+        &\left[\frac{-1}{x}\right]_{1}^{\infty}
+    \end{align}
+    Als obere Grenze kann nicht einfach $\infty$ eingesetzt werden, deshalb suchen wir einen Weg um uns an $\infty$ anzunähern.
+    \begin{align}
+        &\lim_{b \to \infty} \left[ \frac{-1}{x}\right]_{1}^{b}
+    \end{align}
+    Jetzt ist es möglich anstatt $\infty$ einfach unsere Variable $b$ einzusetzen und erstmal so weit wie möglich aufzulösen.
+    \begin{align}
+        &\lim_{b \to \infty} \left[ \frac{-1}{b} - \left(\frac{-1}{1}\right)\right] \\
+        &\lim_{b \to \infty} \left( \frac{-1}{b} + 1\right)
+    \end{align}
+    Nachdem wir so weit wie möglich vereinfacht haben, gucken wir uns jetzt jeden Bestandteil des Ergebnisses an.
+    Da unsere Variable $b$ ist, interessieren uns erstmal nur die Terme, in denen $b$ vorkommt.
+    $+1$ ist für den Limes irrelevant, da es kein $b$ enthält, $\frac{-1}{b}$ ist jedoch relevant, deshalb müssen wir uns $\frac{-1}{b}$ genauer angucken. \newline
+    Dazu müssen wir uns fragen, was passiert, wenn $b$ einen sehr großen Wert annimmt.
+    Anhand von ein paar Beispielen kann man das verhalten von $\frac{-1}{b}$ relativ gut verinnerlichen.
+    Man kann zur Veranschaulichung einfach ein paar Werte für $b$ einsetzen.
+    \begin{align}
+        &\frac{-1}{b} \\ 
+        \frac{-1}{2} &= -0.5 \\ 
+        \frac{-1}{4} &= -0.25 \\ 
+        \frac{-1}{8} &= -0.125 \\ 
+        \frac{-1}{16} &= -0.0625
+    \end{align}
+    Wie man relativ gut erkennen kann, geht $\frac{-1}{b}$ immer weiter gegen $0$, desto größer der Wert für $b$ ist.
+    Das bedeutet für unsere ursprüngliche Frage, dass dieser Term wegfällt.
+    \begin{align}
+        \lim_{b \to \infty} &\left( \frac{-1}{b} + 1\right) \\
+        &=1 \\
+        \int_{1}^{\infty} f(x) \ dx &= 1
+    \end{align}
+    Nach ein wenig Rechnerei wissen wir also, dass unser uneigentliches Integral, welches eine obere Grenze von $\infty$ hat, nicht den Wert von $\infty$, 
+    sondern einen Wert von $1$ hat.
+\end{flushleft}
