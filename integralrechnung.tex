@@ -31,6 +31,78 @@
             -x, &\text{sonst}
         \end{cases}
     \]
+    Dass die Integralrechnung keine Flächenberechnung ist kann man sich schnell deutlich machen.
+    Haben wir beispielsweise die Funktion $f(x)=-x^2+4$ gegeben und wollen diese von $-2$ bis $2$ integrieren, sieht die Fläche, die wir berechnen wollen so aus:
+\end{flushleft}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+        xmin=-3,
+        xmax=3,
+        ymax=5,
+        ymin=-2,
+        domain=-3:3,
+        samples=100,
+        axis lines=middle,
+        %unbound coords=discard,
+    ]
+    \addplot[red,ultra thick,name path=A] ({\x},{-((\x)*(\x))+4});
+    \addlegendentry{\(f(x)=-x^2+4\)};
+    
+    \addplot[draw=none,name path=B] {0};
+    \addplot[red,opacity=0.3] fill between[of=A and B,soft clip={domain=-2:2}];
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{flushleft}
+    Jetzt bilden wir das Integral und lösen es auf.
+    \begin{align}
+        &\int_{-2}^{2} -x^2+4 \ dx \\
+        = &\left[\frac{-x^3}{3}+4x\right]_{-2}^{2} \\
+        = &\left[\frac{-2^3}{3}+4*2-\left(\frac{-(-2)^3}{3}+4(-2)\right)\right] \\
+        = &\frac{32}{3}
+    \end{align}
+    Es gibt keine Probleme. Möchten wir jetzt jedoch von $2$ bis $4$ integrieren, stellen wir etwas komisches fest.
+\end{flushleft}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+        xmin=0,
+        xmax=6,
+        ymax=5,
+        ymin=-6,
+        domain=0:6,
+        samples=100,
+        axis lines=middle,
+        %unbound coords=discard,
+    ]
+    \addplot[red,ultra thick,name path=A] ({\x},{-((\x)*(\x))+4});
+    \addlegendentry{\(f(x)=-x^2+4\)};
+    
+    \addplot[draw=none,name path=B] {0};
+    \addplot[red,opacity=0.3] fill between[of=A and B,soft clip={domain=2:4}];
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{flushleft}
+    Erstmal das Integral bilden.
+    \begin{align}
+        &\int_{2}^{4} -x^2+4 \ dx \\
+        = &\left[\frac{-x^3}{3}+4x\right]_{2}^{4} \\
+        = &\left[\frac{-4^3}{3}+4*4-\left(\frac{-2^3}{3}+4*2\right)\right] \\
+        = &\frac{-32}{3}
+    \end{align}
+    Das Ergebnis ist negativ, obwohl ein negativer Flächeninhalt nicht möglich ist.
+    Deshalb nutzen wir, wenn das Ergebnis des Integrals negativ ist -- was vorher geprüft werden sollte -- den Betrag des Ergebnisses.
+    \begin{align}
+        & \left | \int_{2}^{4} -x^2+4 \ dx \right | \\
+        = & \left | \frac{-32}{3} \right | \\
+        = &\frac{32}{3}
+    \end{align}
 \end{flushleft}
 
 \section{Flächen zwischen zwei Funktionen}
@@ -38,7 +110,39 @@
 \begin{flushleft}
     Um die Fläche zwischen den beiden Funktionen $f$ und $g$ ($f \geq g$) im Intervall $[a;b]$ zu berechnen nutzt man diese Formel:
     \begin{align}
-        \int_{a}^{b} [f(x)-g(x)] \ dx
+        \int_{a}^{b} \left[f(x)-g(x)\right] \ dx
+    \end{align}
+    Beispiel: $f(x)=-x^2+4$, $g(x)=2$
+\end{flushleft}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+        xmin=-6,
+        xmax=6,
+        ymax=5,
+        ymin=-1,
+        domain=-6:6,
+        samples=100,
+        axis lines=middle,
+        %unbound coords=discard,
+    ]
+    \addplot[red,ultra thick,name path=A] ({\x},{-((\x)*(\x))+4});
+    \addlegendentry{\(f(x)\)};
+    \addplot[blue,ultra thick,name path=B] ({\x},{2});
+    \addlegendentry{\(g(x)\)};
+    
+    \addplot[red,opacity=0.3] fill between[of=A and B,soft clip={domain=-1.5:1.5}];
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{flushleft}
+    Um die Fläche zwischen $f$ und $g$ zu bestimmen muss zunächst klar werden, welche Funktion in dem gezeigten Bereich größer ist.
+    Hier ist $f > g, [x_1;x_2]$, $x_1$ und $x_2$ stellen hier die Schnittpunkte der beiden Funktionen dar.
+    Jetzt darf einfach in die Formel eingesetzt werden, $x_1$ und $x_2$ müssen dafür natürlich erst bestimmt werden, das werden wir in diesem Beispiel jedoch nicht machen.
+    \begin{align}
+        \int_{x_1}^{x_2} \left[f(x)-g(x)\right] \ dx
     \end{align}
 \end{flushleft}
 
@@ -57,7 +161,62 @@
     \begin{align}
         \bar{m}=\frac{1}{b-a}\int_{a}^{b} f(x) \ dx
     \end{align}
+    Beispiel: $f(x)=-x^2+4$
 \end{flushleft}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+        xmin=-4,
+        xmax=4,
+        ymax=5,
+        ymin=-1,
+        domain=-4:4,
+        samples=100,
+        axis lines=middle,
+        %unbound coords=discard,
+    ]
+    \addplot[red,ultra thick,name path=A] ({\x},{-((\x)*(\x))+4});
+    \addlegendentry{\(f(x)\)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{flushleft}
+    Wir wollen den Mittelwert $\bar{m}$ von $f$ in dem Interval $\left[-2;2\right]$ bestimmen.
+    Dafür setzen wir einfach in die Formel ein.
+    \begin{align}
+        \bar{m}&=\frac{1}{b-a}\int_{a}^{b} f(x) \ dx \\
+        \bar{m}&=\frac{1}{2-(-2)}\int_{-2}^{2} -x^2+4 \ dx \\
+        \bar{m}&=\frac{1}{4}\int_{-2}^{2} -x^2+4 \ dx \\
+        \bar{m}&=\frac{1}{4}\left[\frac{-x^3}{3}+4x\right]_{-2}^{2} \\
+        \bar{m}&=\frac{1}{4}\left[\frac{-2^3}{3}+4*2-\left(\frac{-(-2)^3}{3}+4(-2)\right)\right] \\
+        \bar{m}&=\frac{1}{4}*\frac{32}{3} \\
+        \bar{m}&=\frac{8}{3}
+    \end{align}
+    Der Mittelwert der Funktion $f$ im Interval $\left[-2;2\right]$ ist also $\frac{8}{3}$.
+\end{flushleft}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+        xmin=-4,
+        xmax=4,
+        ymax=5,
+        ymin=-1,
+        domain=-4:4,
+        samples=100,
+        axis lines=middle,
+        %unbound coords=discard,
+    ]
+    \addplot[red,ultra thick,name path=A] ({\x},{-((\x)*(\x))+4});
+    \addlegendentry{\(f(x)\)};
+    
+    \addplot[blue,ultra thick,name path=B] ({\x},{8/3});
+    \addlegendentry{\(\bar{m}\)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
 
 \section{Rekonstruktion von Beständen}
 
@@ -78,8 +237,71 @@
     Die Rotationsachse wird auch die Figureachse genannt.
     Um allgemein das Volumen eines Rotationskörpers, der durch die Funktion $f$ beschrieben wird zu bestimmen nutzt man diese Formel:
     \begin{align}
-        V=\pi\int_{a}^{b}[f(x)]^2 \ dx
+        V=\pi\int_{a}^{b}\left[f(x)\right]^2 \ dx
     \end{align}
+    Beispiel: $f(x)=x^2$, im Interval $[0;2]$
+\end{flushleft}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+        xmin=-1,
+        xmax=4,
+        ymax=5,
+        ymin=-1,
+        domain=-1:4,
+        samples=100,
+        axis lines=middle,
+        %unbound coords=discard,
+    ]
+    \addplot[red,ultra thick,name path=A] ({\x},{((\x)*(\x))});
+    \addlegendentry{\(f(x)\)};
+    
+    \addplot[draw=none,name path=B] ({\x},{0});
+    \addplot[red,opacity=0.3] fill between[of=A and B,soft clip={domain=0:2}];
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{flushleft}
+    Wenn diese Funktion $f$ um die X-Achse rotiert wird, sieht der Körper, der entsteht in etwa so aus:
+\end{flushleft}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+        xmin=-1,
+        xmax=4,
+        ymax=5,
+        ymin=-5,
+        domain=-1:4,
+        samples=100,
+        axis lines=middle,
+        %unbound coords=discard,
+    ]
+    \addplot[red,ultra thick,name path=A] ({\x},{((\x)*(\x))});
+    \addlegendentry{\(f(x)\)};
+    
+    \addplot[blue,ultra thick,name path=B] ({\x},{-((\x)*(\x))});
+    \addlegendentry{\(-x^2\)};
+    
+    \addplot[red,opacity=0.3] fill between[of=A and B,soft clip={domain=0:2}];
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{flushleft}
+    Jetzt interessiert uns das Volumen $V$, das dieser Körper hat.
+    Dazu setzen wir unsere Werte in die Formel ein.
+    \begin{align}
+        V &=\pi\int_{0}^{2}\left[x^2\right]^2 \ dx \\
+        V &=\pi\int_{0}^{2} x^4 \ dx \\
+        V &=\pi \left[\frac{x^5}{5}\right]_{0}^{2} \\
+        V &=\pi \left[\frac{2^5}{5}-\left(\frac{0^5}{5}\right)\right] \\
+        V &=\pi \frac{32}{5} \\
+        V &=\frac{32\pi}{5}
+    \end{align}
+    Nun wissen wir, dass das Volumen $V$ unseres Rotationskörpers $\frac{32\pi}{5}$ ist.
 \end{flushleft}
 
 \section{Uneigentliche Integrale}
