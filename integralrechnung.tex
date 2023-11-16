@@ -25,7 +25,7 @@
     Außerdem ist die Integralrechnung keine Flächenberechnung, daher werden oft Absolutbeträge genutzt. Damit wird das Ergebnis eines Integrals immer positiv.
     Die Definition des Absolutbetrags sieht so aus:
     \[
-        \mid x \mid =
+        \left | x \right | =
         \begin{cases}
             x, &\text{wenn } x \geq 0 \\
             -x, &\text{sonst}
@@ -47,8 +47,8 @@
         axis lines=middle,
         %unbound coords=discard,
     ]
-    \addplot[red,ultra thick,name path=A] ({\x},{-((\x)*(\x))+4});
-    \addlegendentry{\(f(x)=-x^2+4\)};
+    \addplot[red,thick,name path=A] ({\x},{-((\x)*(\x))+4});
+    \addlegendentry{\(f(x)=-x^2+4\)}
     
     \addplot[draw=none,name path=B] {0};
     \addplot[red,opacity=0.3] fill between[of=A and B,soft clip={domain=-2:2}];
@@ -79,8 +79,8 @@
         axis lines=middle,
         %unbound coords=discard,
     ]
-    \addplot[red,ultra thick,name path=A] ({\x},{-((\x)*(\x))+4});
-    \addlegendentry{\(f(x)=-x^2+4\)};
+    \addplot[red,thick,name path=A] ({\x},{-((\x)*(\x))+4});
+    \addlegendentry{\(f(x)=-x^2+4\)}
     
     \addplot[draw=none,name path=B] {0};
     \addplot[red,opacity=0.3] fill between[of=A and B,soft clip={domain=2:4}];
@@ -127,10 +127,10 @@
         axis lines=middle,
         %unbound coords=discard,
     ]
-    \addplot[red,ultra thick,name path=A] ({\x},{-((\x)*(\x))+4});
-    \addlegendentry{\(f(x)\)};
-    \addplot[blue,ultra thick,name path=B] ({\x},{2});
-    \addlegendentry{\(g(x)\)};
+    \addplot[red,thick,name path=A] ({\x},{-((\x)*(\x))+4});
+    \addlegendentry{\(f(x)\)}
+    \addplot[blue,thick,name path=B] ({\x},{2});
+    \addlegendentry{\(g(x)\)}
     
     \addplot[red,opacity=0.3] fill between[of=A and B,soft clip={domain=-1.5:1.5}];
 \end{axis}
@@ -176,8 +176,8 @@
         axis lines=middle,
         %unbound coords=discard,
     ]
-    \addplot[red,ultra thick,name path=A] ({\x},{-((\x)*(\x))+4});
-    \addlegendentry{\(f(x)\)};
+    \addplot[red,thick,name path=A] ({\x},{-((\x)*(\x))+4});
+    \addlegendentry{\(f(x)\)}
 \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -209,11 +209,11 @@
         axis lines=middle,
         %unbound coords=discard,
     ]
-    \addplot[red,ultra thick,name path=A] ({\x},{-((\x)*(\x))+4});
-    \addlegendentry{\(f(x)\)};
+    \addplot[red,thick,name path=A] ({\x},{-((\x)*(\x))+4});
+    \addlegendentry{\(f(x)\)}
     
-    \addplot[blue,ultra thick,name path=B] ({\x},{8/3});
-    \addlegendentry{\(\bar{m}\)};
+    \addplot[blue,thick,name path=B] ({\x},{8/3});
+    \addlegendentry{\(\bar{m}\)}
 \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -254,8 +254,8 @@
         axis lines=middle,
         %unbound coords=discard,
     ]
-    \addplot[red,ultra thick,name path=A] ({\x},{((\x)*(\x))});
-    \addlegendentry{\(f(x)\)};
+    \addplot[red,thick,name path=A] ({\x},{((\x)*(\x))});
+    \addlegendentry{\(f(x)\)}
     
     \addplot[draw=none,name path=B] ({\x},{0});
     \addplot[red,opacity=0.3] fill between[of=A and B,soft clip={domain=0:2}];
@@ -279,11 +279,11 @@
         axis lines=middle,
         %unbound coords=discard,
     ]
-    \addplot[red,ultra thick,name path=A] ({\x},{((\x)*(\x))});
-    \addlegendentry{\(f(x)\)};
+    \addplot[red,thick,name path=A] ({\x},{((\x)*(\x))});
+    \addlegendentry{\(f(x)\)}
     
-    \addplot[blue,ultra thick,name path=B] ({\x},{-((\x)*(\x))});
-    \addlegendentry{\(-x^2\)};
+    \addplot[blue,thick,name path=B] ({\x},{-((\x)*(\x))});
+    \addlegendentry{\(-x^2\)}
     
     \addplot[red,opacity=0.3] fill between[of=A and B,soft clip={domain=0:2}];
 \end{axis}
@@ -325,8 +325,8 @@
         restrict y to domain=0:5
         %unbound coords=discard,
     ]
-    \addplot[red,ultra thick,name path=A] ({\x},{1/((\x)*(\x))});
-    \addlegendentry{\(f(x)=\frac{1}{x^2}\)};
+    \addplot[red,thick,name path=A] ({\x},{1/((\x)*(\x))});
+    \addlegendentry{\(f(x)=\frac{1}{x^2}\)}
 \end{axis}
 \end{tikzpicture}
 \end{center}
@@ -362,8 +362,8 @@
         restrict y to domain=0:5
         %unbound coords=discard,
     ]
-    \addplot[red,ultra thick,name path=A] ({\x},{1/((\x)*(\x))});
-    \addlegendentry{\(f(x)=\frac{1}{x^2}\)};
+    \addplot[red,thick,name path=A] ({\x},{1/((\x)*(\x))});
+    \addlegendentry{\(f(x)=\frac{1}{x^2}\)}
     
     \addplot[draw=none,name path=B] {0};
     \addplot[red,opacity=0.3] fill between[of=A and B,soft clip={domain=1:5}];
