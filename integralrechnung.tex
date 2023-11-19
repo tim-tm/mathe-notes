@@ -267,26 +267,53 @@
     Wenn diese Funktion $f$ um die X-Achse rotiert wird, sieht der Körper, der entsteht in etwa so aus:
 \end{flushleft}
 
+% Code von: https://tex.stackexchange.com/questions/191091/function-rotated-about-the-x-axis
 \begin{center}
-\begin{tikzpicture}
-\begin{axis}[
-        xmin=-1,
-        xmax=4,
-        ymax=5,
-        ymin=-5,
-        domain=-1:4,
-        samples=100,
-        axis lines=middle,
-        %unbound coords=discard,
-    ]
-    \addplot[red,thick,name path=A] ({\x},{((\x)*(\x))});
-    \addlegendentry{\(f(x)\)}
-    
-    \addplot[blue,thick,name path=B] ({\x},{-((\x)*(\x))});
-    \addlegendentry{\(-x^2\)}
-    
-    \addplot[red,opacity=0.3] fill between[of=A and B,soft clip={domain=0:2}];
-\end{axis}
+    \def\aDomain{0}
+    \def\bDomain{2}
+
+    \def\fcn{\x^2}
+
+    \def\cRange{0}
+    \def\dRange{4}
+
+    \def\xGridSteps{8}
+
+    \def\rotationGridSteps{16}
+
+    \def\phi{17}
+
+\begin{tikzpicture}[domain= \aDomain: \bDomain]
+    \pgfmathsetmacro\intervalLength{\bDomain - \aDomain}
+    \pgfmathsetmacro\xGridStepsize{\intervalLength/\xGridSteps}
+    \pgfmathsetmacro\rotationGridStepsize{360/\rotationGridSteps}
+
+    \foreach \theta in {0, \rotationGridStepsize, ..., 180} {
+        \tikzset{xyplane/.estyle={cm={
+        cos(\phi), 0, sin(\theta)*sin(\phi),
+        cos(\theta), (0, 0)}}}
+        \draw[xyplane,smooth] plot (\x, \fcn) ;
+    }
+
+    \pgfmathsetmacro\nextStep{\aDomain + \xGridStepsize}
+    \foreach \x in {\aDomain,\nextStep, ...,\bDomain} {
+        \pgfmathsetmacro\xsh{(cos(\phi))*(\x)}
+        \pgfmathsetmacro\rad{(\fcn)}        
+        \tikzset{xyplane/.estyle={cm={cos(\phi - 90), 0,0,1,(\xsh, 0)}}}        
+        \draw[xyplane,black,thin,opacity=1] (0, \rad) arc (90 : 270 : \rad);
+    }
+
+    \foreach \theta in {0, \rotationGridStepsize, ..., 180} {
+        \tikzset{xyplane/.estyle={cm={cos(\phi), 0, sin(\theta)*sin(\phi),cos(\theta),(0, 0)}}}
+        \draw[xyplane,smooth] plot (\x, \fcn) ;
+    }
+
+    \foreach \x in {\aDomain, \nextStep, ..., \bDomain}{
+        \pgfmathsetmacro\xsh{(cos(\phi))*(\x)}
+        \pgfmathsetmacro\rad{(\fcn)}
+        \tikzset{xyplane/.estyle={cm={cos(\phi-90),0,0,1, (\xsh, 0)}}}
+        \draw[xyplane] (0, -\rad) arc (-90 : 90 : \rad);
+    }
 \end{tikzpicture}
 \end{center}
 
