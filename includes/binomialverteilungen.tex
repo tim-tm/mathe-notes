@@ -1,0 +1,75 @@
+\chapter{Binomialverteilungen}
+
+\section{Definition}
+\begin{flushleft}
+    Eine Binomialverteilung ist eine diskrete Wahrscheinlichkeitsverteilung. Das bedeutet, dass eine Binomialverteilung
+    auf einer kleineren Menge definiert ist. Oft ist diese Menge endlich (${0,1,2,\dots,n}$), sie kann aber auch abzählbar
+    unendlich (Bsp.: Menge der natürlichen Zahlen) sein. \\
+    Außerdem kennt eine Binomialverteilung nur zwei Versuchsausgänge, Erfolg oder Misserfolg. Solche Experimente werden Bernoulli
+    Experimente genannt.
+\end{flushleft}
+
+\section{Aufgabentypen}
+\begin{flushleft}
+    Für alle hier beschriebenen Aufgabentypen gilt $n$ als die Anzahl aller Versuchsausgänge, $k$ als die beschränkte Anzahl von
+    Versuchsausgängen und $p$ als Erfolgswahrscheinlichkeit. \\
+    \textit{Beispiel: Ein Würfel wird 100 mal geworfen, wie hoch ist die Wahrscheinlichkeit, dass 5 Sechsen geworfen werden?} \\
+    Hier gilt:
+    \begin{align}
+        n=100,k=5,p=\frac{1}{6}
+    \end{align}
+\end{flushleft}
+
+\subsection{Bestimmung von $P$}
+\begin{flushleft}
+    Der häufigste und einfachste Aufgabentyp ist die Bestimmung von $P$.
+    Hierbei verlässt man sich auf eine treue Formel.
+    \begin{align}
+        P(X=k)=\binom{n}{k} \cdot p^k \cdot (1-p)^{n-k}
+    \end{align}
+    Kumulierte Wahrscheinlichkeiten berechnet man mit der selben Formel, diese benötigen
+    jedoch mehr Aufwand.
+    \begin{align}
+        P(X \leq 2)=P(X=0)+P(X=1)+P(X=2)
+    \end{align}
+    Mathematica bietet den $CDF$ Befehl um diese Art der kumulierten Wahrscheinlichkeit auszurechnen.
+    Somit lässt sich jeder beliebige Ausdruck in solch einen Ausdruck umformen und mit Mathematica berechnen.
+    \begin{align}
+        P(X>k) &= 1-P(X \leq k) \\
+        P(X \geq k) &= 1-P(X \leq k-1) \\
+        P(X<k) &= P(X \leq k-1) \\
+        P(k_{1} \leq X \leq k_{2}) &= P(X \leq k_{2})-P(X \leq k_{1}-1)
+    \end{align}
+\end{flushleft}
+
+\subsection{Bestimmung von $n$}
+\begin{flushleft}
+    In manchen Aufgaben sind nur $p$ und $k$ gegeben, $n$ muss bestimmt werden.
+    Aus der Aufgabenstellung geht dann eine ähnliche Ungleichung hervor (hier: $p=0.6$ und $k=n$):
+    \begin{align}
+        P(X=n) &\leq 0.01 \\
+        \binom{n}{n} \cdot 0.6^n \cdot 0.4^0 &\leq 0.01 \\
+        0.6^n &\leq 0.01 \\
+        \ln(0.6^n) &\leq \ln(0.01) \\
+        n\ln(0.6) &\leq \ln(0.01) \\
+        n &\geq \frac{\ln(0.01)}{\ln(0.6)} \approx 9.01 \\
+        \geq &\text{, da} \ln(0.6)<0
+    \end{align}
+    Hier ist also, wie so oft in der Stochastik, die einzige Kunst das Entschlüsseln der Aufgabenstellung.
+\end{flushleft}
+
+\subsection{Erwartungswert und Standardabweichung}
+\begin{flushleft}
+    Der Erwartungswert $\mu$ und die Standardabweichung $\sigma$ sind wichtige Bestandteile der Stochastik.
+    Glücklicherweise ist es bei Binomialverteilungen relativ einfach $\mu$ und $\sigma$ zu bestimmen.
+    \begin{align}
+        \mu &= n \cdot p \\
+        \sigma &= \sqrt{n \cdot p \cdot (1-p)}
+    \end{align}
+    Der Erwartungswert ist der Wert, der im Schnitt erwartet wird, wenn ein Experiment oft ausgeführt wird.
+    Die Standardabweichung ist die mögliche Abweichung vom Erwartungswert.
+    Dieses Interval beschreibt diese Abweichung:
+    \begin{align}
+        [\mu-\sigma;\mu+\sigma]
+    \end{align}
+\end{flushleft}
