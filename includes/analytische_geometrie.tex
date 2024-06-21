@@ -1,1 +1,76 @@
 \chapter{Analytische Geometrie}
+
+\section{Vektorrechnung}
+\begin{flushleft}
+Ein Vektor kann als die Verschiebung eines Punktes gesehen werden.
+Dabei kann jedoch ein einzelner Vektor auf eine beliebige Menge von Punkten angewandt werden.
+Wenn man den Vektor $\vec{a}$ auf den Punkt $P$ anwendet, bekommt man also einen zweiten Punkt $P'$,
+dessen Koordinaten um die Werte des Vektors $\vec{a}$ verschoben wurden.
+
+\begin{align}
+    \vec{a} &= \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \\
+    P &= \left(1,2,3\right) \\
+    P' &= \left(1+1,2+1,3+1\right) = \left(2,3,4\right)
+\end{align}
+\end{flushleft}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    view={35}{15},
+    axis lines=center,
+    width=15cm,height=15cm,
+    xtick={1,2,3,4,5},ytick={1,2,3,4,5},ztick={1,2,3,4,5},
+    xmin=0,xmax=5,ymin=0,ymax=5,zmin=0,zmax=5,
+    xlabel={$x$},ylabel={$y$},zlabel={$z$}
+]
+
+\addplot3 [only marks] coordinates {(1,2,3) (2,3,4)};
+\addplot3 [no marks,densely dashed] coordinates {(1,0,0) (1,2,0) (1,2,3) (1,2,0) (0,2,0)};
+\addplot3 [no marks,densely dashed] coordinates {(2,0,0) (2,3,0) (2,3,4) (2,3,0) (0,3,0)};
+
+\node [above left] at (axis cs:1,2,3) {$P(1,2,3)$};
+\node [above right] at (axis cs:2,3,4) {$P'(2,3,4)$};
+\draw [->,thick] (axis cs:1,2,3) to (axis cs:1.97,2.97,3.97);
+\node [above left] at (axis cs:1.5,2.5,3.5) {$\vec{a}$};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\subsection{Ortsvektoren}
+\begin{flushleft}   
+Ortsvektoren verschieben nur den Ursprung des Koordinatensystems.
+Der Ortsvektor $\overrightarrow{OP}$ hat also die gleichen Koordinaten, wie der Punkt $P$,
+da $O=(0,0,0)$ ist.
+
+\begin{align}
+    O &= (0,0,0) \\
+    P &= (1,2,3) \\
+    \overrightarrow{OP} &= \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}
+\end{align}
+\end{flushleft}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    view={35}{15},
+    axis lines=center,
+    width=15cm,height=15cm,
+    xtick={1,2,3,4,5},ytick={1,2,3,4,5},ztick={1,2,3,4,5},
+    xmin=-2,xmax=5,ymin=-2,ymax=5,zmin=-2,zmax=5,
+    xlabel={$x$},ylabel={$y$},zlabel={$z$}
+]
+
+\addplot3 [only marks] coordinates {(0,0,0) (1,2,3)};
+\addplot3 [no marks,densely dashed] coordinates {(1,0,0) (1,2,0) (1,2,3)};
+\addplot3 [no marks,densely dashed] coordinates {(0,2,0) (1,2,0)};
+
+\node [above right] at (axis cs:1,2,3) {$P(1,2,3)$};
+\node [left] at (axis cs:0,0,0) {$O(0,0,0)$};
+\draw [->,thick] (axis cs:0,0,0) to (axis cs:0.95,1.95,2.95);
+\node [below] at (axis cs:0.3,1.3,2.3) {$\overrightarrow{OP}$};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
