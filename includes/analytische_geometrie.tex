@@ -270,30 +270,6 @@ Es gilt also:
 \end{align}
 \end{flushleft}
 
-\subsection{Geraden im Raum}
-\begin{flushleft}
-Eine Gerade $g$ im Raum besteht aus einem Stützvektor $\vec{v}$ und einem Richtungsvektor $\vec{r}$.
-
-\begin{align}
-    g\colon\vec{x}=\vec{v}+t\cdot\vec{r}
-\end{align}
-\end{flushleft}
-
-\subsubsection{Punkte einer Geraden bestimmen}
-\begin{flushleft}
-Beispielhaft ist hier die Gerade $g$ wie folgt definiert:
-
-\begin{align}
-    g\colon\vec{x}=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}+t\cdot\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
-\end{align}
-
-Um verschiedene Punkte zu bestimmen, die auf der Geraden liegen muss man bloß einen Wert für $t$ einsetzen:
-\begin{align}
-    \vec{x}_0=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}+0\cdot\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \\
-    \vec{x}_1=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}+1\cdot\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}=\begin{pmatrix} 2 \\ 2 \\ 2 \end{pmatrix}
-\end{align}
-\end{flushleft}
-
 \subsection{Skalarprodukt}
 \begin{flushleft}
 Allgemein geht es beim Skalarprodukt um die Multiplikation zweier Vektoren.
@@ -352,5 +328,84 @@ Umgeformt sieht das ganze so aus:
 Deswegen gilt also:
 \begin{align}
     \vec{a}\cdot\vec{b}=\begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix}\cdot\begin{pmatrix} b_1 \\ b_2 \\ b_3 \end{pmatrix}=a_1 b_1+a_2 b_2+a_3 b_3
+\end{align}
+\end{flushleft}
+
+\subsection{Geraden im Raum}
+\begin{flushleft}
+Eine Gerade $g$ im Raum besteht aus einem Stützvektor $\vec{v}$ und einem Richtungsvektor $\vec{r}$.
+
+\begin{align}
+    g\colon\vec{x}=\vec{v}+t\cdot\vec{r}
+\end{align}
+\end{flushleft}
+
+\subsubsection{Punkte einer Geraden bestimmen}
+\begin{flushleft}
+Beispielhaft ist hier die Gerade $g$ wie folgt definiert:
+\begin{align}
+    g\colon\vec{x}=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}+t\cdot\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
+\end{align}
+
+Um verschiedene Punkte zu bestimmen, die auf der Geraden liegen muss man bloß einen Wert für $t$ einsetzen:
+\begin{align}
+    \vec{x}_0=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}+0\cdot\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \\
+    \vec{x}_1=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}+1\cdot\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}=\begin{pmatrix} 2 \\ 2 \\ 2 \end{pmatrix}
+\end{align}
+\end{flushleft}
+
+\subsubsection{Punktproben}
+\begin{flushleft}
+Wenn man prüfen möchte ob der Punkt $P(1|1|1)$ auf der Geraden:
+\begin{align}
+    g\colon\vec{x}=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}+t\cdot\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
+\end{align}
+liegt, setzt man den Ortsvektor des Punktes $P$ in die Gerade $g$ ein:
+\begin{align}
+    \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}+t\cdot\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
+\end{align}
+
+Hier wird schnell klar, dass der Punkt $P(1|1|1)$ für $t=0$ auf der Geraden $g$ liegt, da der Richtungsvektor für $t=0$ wegfällt und der Stützvektor und der Ortsvektor zum Punkt $P$ identisch sind.
+
+Der allgemeine Lösungsansatz ist jedoch ein Gleichungsystem zu bilden:
+\begin{align}
+    1&=1+t \label{eins} \\
+    1&=1+t \label{zwei} \\
+    1&=1+t \label{drei}
+\end{align}
+Das LGS besteht aus den drei Gleichungen \eqref{eins}, \eqref{zwei} und \eqref{drei}.
+Da alle Gleichungen identisch sind, reicht es hier eine beliebige Gleichung nach $t$ aufzulösen:
+\begin{align}
+    1&=1+t \\
+    \Leftrightarrow 0&=t
+\end{align}
+Dieser Lösungsweg zeigt auch, dass der Punkt $P(1|1|1)$ für $t=0$ auf der Geraden $g$ liegt.
+\end{flushleft}
+
+\subsubsection{Orthogonalität}
+\begin{flushleft}
+Möchte man eine Gerade $h$ finden, die zu einer anderen Geraden $g$ orthogonal verläuft, müssen die Richtungsvektoren beider Geraden orthogonal zueinander sein.
+
+Um eine Gerade zu finden, die orthogonal zu der Geraden:
+\begin{align}
+    g\colon\vec{x}=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}+t\cdot\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
+\end{align}
+verläuft, muss man einen Vektor $\vec{r_h}$ finden, der orthogonal zu dem Richtungsvektor $\vec{r_g}$ von $g$ ist:
+\begin{align}
+    \vec{r_h}&\perp\vec{r_g} \\
+    \Leftrightarrow \vec{r_h}\cdot\vec{r_g}&=0 \\
+    \Leftrightarrow \begin{pmatrix} r_1 \\ r_2 \\ r_3 \end{pmatrix}\cdot\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}&=0 \\
+    \Leftrightarrow r_1+r_2+r_3&=0 \\
+    \Leftrightarrow r_1&=-r_2-r_3 \\
+    \Leftrightarrow r_2&=-r_1-r_3 \\
+    \Leftrightarrow r_3&=-r_1-r_2
+\end{align}
+Nun hat man eine Gleichung mit drei Unbekannten, deshalb kann man zwei dieser Unbekannten frei wählen, wählt man also $r_1=1$ und $r_2=2$ ergibt sich die folgende Gleichung für $h$:
+\begin{align}
+    r_1&=1 \\
+    r_2&=2 \\
+    r_3&=-1-2=-3 \\
+    \vec{r_h}&=\begin{pmatrix} 1 \\ 2 \\ -3 \end{pmatrix} \\
+    h\colon\vec{x}&=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}+s\cdot\begin{pmatrix} 1 \\ 2 \\ -3 \end{pmatrix}
 \end{align}
 \end{flushleft}
