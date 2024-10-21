@@ -293,3 +293,64 @@ Um verschiedene Punkte zu bestimmen, die auf der Geraden liegen muss man bloß e
     \vec{x}_1=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}+1\cdot\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}=\begin{pmatrix} 2 \\ 2 \\ 2 \end{pmatrix}
 \end{align}
 \end{flushleft}
+
+\subsection{Skalarprodukt}
+\begin{flushleft}
+Allgemein geht es beim Skalarprodukt um die Multiplikation zweier Vektoren.
+
+Es gilt:
+\begin{align}
+    \vec{a}\cdot\vec{b}=\begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix}\cdot\begin{pmatrix} b_1 \\ b_2 \\ b_3 \end{pmatrix}=a_1 b_1+a_2 b_2+a_3 b_3
+\end{align}
+
+Das Skalarprodukt zweier Vektoren ist auch nützlich um herauszufinden ob diese Vektoren zueinander
+orthogonal sind.
+
+Ein Vektor $\vec{a}$ ist nämlich orthogonal zu einem anderen Vektor $\vec{b}$, wenn:
+\begin{align}
+    \vec{a}\cdot\vec{b}=0
+\end{align}
+ist.
+\end{flushleft}
+
+\subsubsection{Herleitung}
+\begin{flushleft}
+Damit $\vec{a}\perp\vec{b}$ gilt, kann man $\vec{a}$ und $\vec{b}$ als Katheten eines rechtwinkligen Dreiecks sehen.
+Somit ergibt sich für die Hypotenuse $\vec{b}-\vec{a}$.
+Wenn jetzt der Satz des Pythagoras gilt, gilt auch $\vec{a}\perp\vec{b}$.
+Konkret bedeutet das so viel:
+\begin{align}
+    \vec{a}&\perp\vec{b} \\
+    |\vec{a}|^2+|\vec{b}|^2&=|\vec{b}-\vec{a}|^2
+\end{align}
+
+Für den ersten Teil der Gleichung ergibt sich so:
+\begin{align}
+    a_1^2+a_2^2+a_3^2+b_1^2+b_2^2+b_3^2
+\end{align}
+
+Der zweite Teil sieht so aus:
+\begin{align}
+    &\left(b_1-a_1\right)^2+\left(b_2-a_2\right)^2+\left(b_3-a_3\right)^2 \\
+    \Leftrightarrow &b_1^2-2b_1a_1+a_1^2+b_2^2-2b_2a_2+a_2^2+b_3^2-2b_3a_3+a_3^2
+\end{align}
+
+Hier sieht man relativ klar, dass der erste Term nur gleich dem zweiten sein kann, wenn:
+\begin{align}
+    -2b_1a_1-2b_2a_2-2b_3a_3=0
+\end{align}
+ist, da der erste Term im zweiten enthalten ist:
+\begin{align}
+    \mathbf{b_1^2}-2b_1a_1+\mathbf{a_1^2}+\mathbf{b_2^2}-2b_2a_2+\mathbf{a_2^2}+\mathbf{b_3^2}-2b_3a_3+\mathbf{a_3^2}
+\end{align}
+
+Umgeformt sieht das ganze so aus:
+\begin{align}
+    a_1b_1+a_2b_2+a_3b_3=0
+\end{align}
+
+Deswegen gilt also:
+\begin{align}
+    \vec{a}\cdot\vec{b}=\begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix}\cdot\begin{pmatrix} b_1 \\ b_2 \\ b_3 \end{pmatrix}=a_1 b_1+a_2 b_2+a_3 b_3
+\end{align}
+\end{flushleft}
