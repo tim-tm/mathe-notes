@@ -331,6 +331,16 @@ Deswegen gilt also:
 \end{align}
 \end{flushleft}
 
+\subsubsection{Winkel zwischen Vektoren}
+\begin{flushleft}
+Um den Winkel $\theta$ zwischen $\vec{a}$ und $\vec{b}$ zu berechnen benötigt man die folgende Formel:
+\begin{align}
+    \cos\theta = \frac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}
+\end{align}
+
+% TODO: Herleitung, welcher Winkel wird berechnet?
+\end{flushleft}
+
 \subsection{Geraden im Raum}
 \begin{flushleft}
 Eine Gerade $g$ im Raum besteht aus einem Stützvektor $\vec{v}$ und einem Richtungsvektor $\vec{r}$.
@@ -339,6 +349,8 @@ Eine Gerade $g$ im Raum besteht aus einem Stützvektor $\vec{v}$ und einem Richt
     g\colon\vec{x}=\vec{v}+t\cdot\vec{r}
 \end{align}
 \end{flushleft}
+
+% TODO: Geradengleichungen aufstellen
 
 \subsubsection{Punkte einer Geraden bestimmen}
 \begin{flushleft}
@@ -407,5 +419,48 @@ Nun hat man eine Gleichung mit drei Unbekannten, deshalb kann man zwei dieser Un
     r_3&=-1-2=-3 \\
     \vec{r_h}&=\begin{pmatrix} 1 \\ 2 \\ -3 \end{pmatrix} \\
     h\colon\vec{x}&=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}+s\cdot\begin{pmatrix} 1 \\ 2 \\ -3 \end{pmatrix}
+\end{align}
+\end{flushleft}
+
+\subsection{Ebenen im Raum}
+\begin{flushleft}
+Eine Ebene im Raum kann durch verschiedene Formen dargestellt werden.
+Man unterscheidet zwischen Parameter-, Normalen-, und Koordinatenform.
+\end{flushleft}
+
+\subsubsection{Parameterform}
+\begin{flushleft}
+Eine Ebene $E$ in der Parameterform hat einen Stützvektor $\vec{s}$ und zwei Spannvektoren $\vec{u}$ und $\vec{v}$, die keine Vielfachen von einander sind:
+\begin{align}
+    E\colon\vec{x}=\vec{s}+t\vec{u}+s\vec{v} \quad t,s\in\mathbb{R}
+\end{align}
+\end{flushleft}
+
+% TODO: Ebenengleichungen aufstellen
+
+\subsubsection{Normalenform}
+\begin{flushleft}
+Eine Ebene $E$ in der Normalenform besteht aus einem Normalenvektor $\vec{n}$, der senkrecht zur Ebene steht, und einem Stützvektor $\vec{p}$:
+\begin{align}
+    E\colon\vec{n}\cdot\left(\vec{x}-\vec{p}\right)=0
+\end{align}
+\end{flushleft}
+
+% TODO: Normalen-, Koordinatengleichungen aufstellen
+
+\subsubsection{Koordinatenform}
+\begin{flushleft}
+Die Koordinatenform ist eine Erweiterung der Normalenform:
+\begin{align}
+    \vec{n}\cdot\left(\vec{x}-\vec{p}\right)&=0 \\
+    \Leftrightarrow \vec{n}\cdot\vec{x}-\vec{n}\cdot\vec{p}&=0 \\
+    \Leftrightarrow \vec{n}\cdot\vec{x}&=\vec{n}\cdot\vec{p} \\
+    \Leftrightarrow \begin{pmatrix}n_1 \\ n_2 \\ n_3 \end{pmatrix}\cdot\begin{pmatrix}x_1 \\ x_2 \\ x_3 \end{pmatrix}&=\vec{n}\cdot\vec{p} \\
+    \Leftrightarrow n_1x_1+n_2x_2+n_3x_3&=d \quad n_1,n_2,n_3,d\in\mathbb{R}
+\end{align}
+
+Eine Ebene $E$ in der Koordinatenform besteht also aus den Koordinaten $n_1, n_2, n_3$ des Normalenvektors $\vec{n}$ und dem Wert $d$, der sich aus $\vec{n}\cdot\vec{p}$ ergibt:
+\begin{align}
+    E\colon n_1x_1+n_2x_2+n_3x_3&=d \quad n_1,n_2,n_3,d\in\mathbb{R}
 \end{align}
 \end{flushleft}
