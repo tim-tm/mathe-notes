@@ -464,3 +464,82 @@ Eine Ebene $E$ in der Koordinatenform besteht also aus den Koordinaten $n_1, n_2
     E\colon n_1x_1+n_2x_2+n_3x_3&=d \quad n_1,n_2,n_3,d\in\mathbb{R}
 \end{align}
 \end{flushleft}
+
+\subsection{Schnittpunkte zwischen Geraden}
+\begin{flushleft}
+Die Schnittpunkte zwischen einer Geraden $g$ und einer anderen Geraden $h$ kann man herausfinden indem man beide Geraden gleichsetzt.
+\begin{align}
+    g\colon\vec{x}&=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}+t\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \\
+    h\colon\vec{x}&=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}+s\begin{pmatrix} 1 \\ 2 \\ 1 \end{pmatrix} \\
+    g&=h \\
+    \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}+t\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}&=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}+s\begin{pmatrix} 1 \\ 2 \\ 1 \end{pmatrix}
+\end{align}
+
+Aus den Koordinaten $x_1,x_2,x_3$ ergibt sich ein lineares Gleichungssystem aus drei Gleichungen:
+\begin{align}
+    &\text{I}\colon1+t=1+s \\
+    &\text{II}\colon1+t=1+2s \\
+    &\text{III}\colon1+t=1+s
+\end{align}
+
+Nun muss das LGS gelöst werden ($III$ wurde entfernt, da $I$=$III$):
+\begin{align}
+    \text{I}\colon& 1+t=1+s \\
+    \text{II}\colon& 1+t=1+2s \\
+    \text{Schritt 1}& \\
+    \text{I}'\colon& t=s \\
+    \text{II}\colon& 1+t=1+2s \\
+    \text{Schritt 2}& \\
+    \text{I}'\colon& t=s \\
+    \text{II}'\colon& 1+s=1+2s \\
+    \text{Schritt 3}& \\
+    \text{I}'\colon& t=s \\
+    \text{II}''\colon& 1=1+s \\
+    \text{Schritt 4}& \\
+    \text{I}'\colon& t=s \\
+    \text{II}'''\colon& 0=s \\
+    \text{Lösung}& \\
+    &t=s=0
+\end{align}
+
+Hier ist der einzige Schnittpunkt der Stützvektor zum Punkt $S(1|1|1)$ beider Geraden.
+
+Zwei Geraden können:
+\begin{enumerate}
+    \item {windschief verlaufen,}
+    \item {parallel verlaufen,}
+    \item {einen Schnittpunkt haben.}
+\end{enumerate}
+\end{flushleft}
+
+\subsection{Schnittpunkte zwischen Gerade und Ebene}
+\subsubsection{Ebene in Parameterform}
+\begin{flushleft}
+Liegt eine Ebene in Parameterform vor, können Gerade und Ebene gleichgesetzt werden.
+Beispielsweise kann man die Gerade $g$ gleich der Ebene $E$ setzen:
+\begin{align}
+    g\colon\vec{x}&=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}+t\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \\
+    E\colon\vec{x}&=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}+r\begin{pmatrix} 2 \\ 1 \\ 1 \end{pmatrix}+s\begin{pmatrix} 1 \\ 2 \\ 1 \end{pmatrix} \\
+    \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}+t\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}&=\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}+r\begin{pmatrix} 2 \\ 1 \\ 1 \end{pmatrix}+s\begin{pmatrix} 1 \\ 2 \\ 1 \end{pmatrix} \\
+    \text{I}\colon& 1+t=1+2r+s \\
+    \text{II}\colon& 1+t=1+r+2s \\
+    \text{III}\colon& 1+t=1+r+s \\
+    \text{Schritt 1}& \\
+    \text{I}\colon& 1+t=1+2r+s \\
+    \text{II}'\colon& 0=s \\
+    \text{III}\colon& 1+t=1+r+s \\
+    \text{Schritt 2}& \\
+    \text{I}'\colon& 0=r \\
+    \text{II}'\colon& 0=s \\
+    \text{III}\colon& 1+t=1+r+s \\
+    \text{Schritt 3}& \\
+    \text{I}'\colon& 0=r \\
+    \text{II}'\colon& 0=s \\
+    \text{III}'\colon& 1+t=1 \Leftrightarrow t=0
+\end{align}
+
+Die Gerade $g$ schneidet die Ebene $E$ für $t=r=s=0$ im Punkt $S(1|1|1)$.
+\end{flushleft}
+
+\subsection{Schnittpunkte zwischen Ebenen}
+
