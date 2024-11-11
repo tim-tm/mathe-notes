@@ -542,4 +542,113 @@ Die Gerade $g$ schneidet die Ebene $E$ für $t=r=s=0$ im Punkt $S(1|1|1)$.
 \end{flushleft}
 
 \subsection{Schnittpunkte zwischen Ebenen}
+% TODO: Schnittpunkte zwischen Ebenen
 
+\section{Matrizen}
+\begin{flushleft}
+Matrizen sind sehr nützlich um viele verschiedene Werte in einen Kontext zu bringen.
+So lassen sich beispielsweise ein- oder mehrstufige Prozesse durch Matrizen darstellen.
+Beispielsweise können durch die Mischung von Kaffepulver, Wasser und Milch unterschiedliche Kaffesorten produziert werden:
+\end{flushleft}
+
+\begin{center}
+\begin{tikzpicture}
+    \node[shape=rectangle,draw=black] (K) at (0,0) {Kaffepulver};
+    \node[shape=rectangle,draw=black] (W) at (0,-2) {Wasser};
+    \node[shape=rectangle,draw=black] (M) at (0,-4) {Milch};
+    \node[shape=rectangle,draw=black] (E) at (4,0) {Espresso};
+    \node[shape=rectangle,draw=black] (L) at (4,-2) {Latte Macchiato};
+    \node[shape=rectangle,draw=black] (C) at (4,-4) {Cappuccino};
+
+    \path [->] (K) edge node[above] {$7$} (E);
+    \path [->] (K) edge node[below] {$9$} (L);
+    \path [->] (K) edge node[above,right] {$7$} (C);
+    \path [->] (W) edge node[above] {$2$} (E);
+    \path [->] (W) edge node[above] {$2$} (L);
+    \path [->] (W) edge node[above] {$4$} (C);
+    \path [->] (M) edge node[below] {$1$} (L);
+    \path [->] (M) edge node[above] {$1$} (C);
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\begin{tabular}{c|c|c|c}
+& Espresso & Latte Macchiato & Cappuccino \\
+\hline
+Kaffepulver & 7 & 9 & 7 \\
+\hline
+Wasser & 2 & 2 & 4 \\
+\hline
+Milch & 0 & 1 & 1 \\
+\end{tabular}
+\end{center}
+
+\begin{flushleft}
+Dieser Prozess kann durch eine Matrix $A$ dargestellt werden:
+\begin{align}
+    A = \begin{pmatrix}
+        7 & 9 & 7 \\
+        2 & 2 & 4 \\
+        0 & 1 & 1
+    \end{pmatrix}
+\end{align}
+
+Um den Bedarf an Kaffepulver, Wasser und Milch für 20 Tassen Espresso, 30 Tassen Latte Macchiato und 15 Tassen Cappuccino zu errechnen,
+kann man nun die Matrix $A$ mit dem Vektor $\vec{r}$ multiplizieren, der die gewünschten Werte enthält,
+so bekommt man einen anderen Vektor $\vec{s}$, der den Bedarf enthält:
+\begin{align}
+    A\cdot\vec{r}&=\vec{s} \\
+    \begin{pmatrix}
+        7 & 9 & 7 \\
+        2 & 2 & 4 \\
+        0 & 1 & 1
+    \end{pmatrix}\cdot
+    \begin{pmatrix}
+        20 \\
+        30 \\
+        15
+    \end{pmatrix}&=\vec{s}
+\end{align}
+
+Aber wie multipliziert man eine Matrix mit einem Vektor?
+\newline
+
+Bei einer Matrixmultiplikation sind die Formen der beiden zu multiplizierenden Matrizen zu beachten.
+Grundlegend gilt, dass jeder Vektor eine Matrix ist.
+
+Die Matrix $A$ ist hier eine Matrix der Form 3x3, also eine quadratische Matrix, da sie drei Spalten und drei Zeilen hat.
+Der Vektor $\vec{r}$ ist hier eine 3x1-Matrix.
+
+Eine Matrix ist immer dann quadratisch, wenn die Anzahl von Spalten gleich der Anzahl von Zeilen ist.
+
+Allgemein dürfen zwei Matrizen $A$ und $B$ nur miteinander multipliziert werden, wenn die Anzahl der Spalten, der Matrix $A$, der Anzahl der Reihen der Matrix $B$ entspricht.
+
+Schaut man sich also die Formen von $A$ und $\vec{r}$ an, sieht man, dass die inneren Werte der beiden Formen gleich sein müssen: 3x\underline{\textbf{3} \textbf{3}}x1.
+\newline
+
+Eine Matrixmultiplikation kann man vereinfacht so betrachten, dass die zweite Matrix auf die erste geklappt wird.
+Dann wird für jede Zeile das Skalarprodukt gebildet:
+\end{flushleft}
+
+\begin{center}
+\begin{tabular}{r|l}
+& \color{red} 20 \\
+& \color{green} 30 \\
+& \color{blue} 15 \\
+\hline
+\color{red} 7 \space \color{green} 9 \space \color{blue} 7 & $7*20+9*30+7*15=515$ \\
+\color{red} 2 \space \color{green} 2 \space \color{blue} 4 & $2*20+2*30+4*15=160$ \\
+\color{red} 0 \space \color{green} 1 \space \color{blue} 1 & $0*20+1*30+1*15=45$
+\end{tabular}
+\end{center}
+
+\begin{flushleft}
+Das Ergebnis der Multiplikation ist also der Vektor $\vec{s}$:
+\begin{align}
+    \vec{s}=\begin{pmatrix}
+        515 \\
+        160 \\
+        45
+    \end{pmatrix}
+\end{align}
+\end{flushleft}
