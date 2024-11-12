@@ -548,6 +548,10 @@ Die Gerade $g$ schneidet die Ebene $E$ für $t=r=s=0$ im Punkt $S(1|1|1)$.
 \begin{flushleft}
 Matrizen sind sehr nützlich um viele verschiedene Werte in einen Kontext zu bringen.
 So lassen sich beispielsweise ein- oder mehrstufige Prozesse durch Matrizen darstellen.
+\end{flushleft}
+
+\subsection{Einstufige Prozesse}
+\begin{flushleft}   
 Beispielsweise können durch die Mischung von Kaffepulver, Wasser und Milch unterschiedliche Kaffesorten produziert werden:
 \end{flushleft}
 
@@ -650,5 +654,145 @@ Das Ergebnis der Multiplikation ist also der Vektor $\vec{s}$:
         160 \\
         45
     \end{pmatrix}
+\end{align}
+\end{flushleft}
+
+\subsection{Zweistufige Prozesse}
+\begin{flushleft}
+Beispielsweise können verschiedene Eissorten aus Milch $M$, Zucker $Z$ und Früchten $F$ produziert werden.
+Bei der Herstellung werden jedoch erst die Zwischenprodukte $S_1$ und $S_2$ produziert, bevor die Endprodukte $E_1$ und $E_2$ produziert werden können.
+\end{flushleft}
+
+\begin{center}
+\begin{tikzpicture}
+    \node[shape=circle,draw=black] (M) at (0,0) {M};
+    \node[shape=circle,draw=black] (Z) at (0,-2) {Z};
+    \node[shape=circle,draw=black] (F) at (0,-4) {F};
+    \node[shape=circle,draw=black] (S1) at (4,-1) {$S_1$};
+    \node[shape=circle,draw=black] (S2) at (4,-3) {$S_2$};
+    \node[shape=circle,draw=black] (E1) at (8,-1) {$E_1$};
+    \node[shape=circle,draw=black] (E2) at (8,-3) {$E_2$};
+
+    \path [->] (M) edge node[above] {$3$} (S1);
+    \path [->] (M) edge node[below] {$2$} (S2);
+    \path [->] (Z) edge node[above] {$1$} (S1);
+    \path [->] (Z) edge node[below] {$1$} (S2);
+    \path [->] (F) edge node[below] {$3$} (S2);
+    \path [->] (S1) edge node[above] {$4$} (E1);
+    \path [->] (S1) edge node[above] {$5$} (E2);
+    \path [->] (S2) edge node[below] {$1$} (E1);
+    \path [->] (S2) edge node[below] {$2$} (E2);
+\end{tikzpicture}
+\end{center}
+
+\begin{center}
+\begin{tabular}{c|c|c}
+& $S_1$ & $S_2$ \\
+\hline
+M & 3 & 2 \\
+\hline
+Z & 1 & 1 \\
+\hline
+F & 0 & 3
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{c|c|c}
+& $E_1$ & $E_2$ \\
+\hline
+$S_1$ & 4 & 5 \\
+\hline
+$S_2$ & 1 & 2
+\end{tabular}
+\end{center}
+
+\begin{flushleft}
+Die Matrix $A$ modelliert den ersten Prozess, $B$ den zweiten:
+\begin{align}
+    A=\begin{pmatrix}
+        3 & 2 \\
+        1 & 1 \\
+        0 & 3
+    \end{pmatrix} \\
+    B=\begin{pmatrix}
+        4 & 5 \\
+        1 & 2
+    \end{pmatrix}
+\end{align}
+
+Um eine Ausgangsprodukt-Endprodukt Matrix $C$ zu erzeugen, muss $A$ mit $B$ multipliziert werden:
+\begin{align}
+    C&=A \cdot B \\
+    C&=\begin{pmatrix}
+        3 & 2 \\
+        1 & 1 \\
+        0 & 3
+    \end{pmatrix} \cdot
+    \begin{pmatrix}
+        4 & 5 \\
+        1 & 2
+    \end{pmatrix} \\
+    C&=\begin{pmatrix}
+        14 & 19 \\
+        5 & 7 \\
+        3 & 6
+    \end{pmatrix}
+\end{align}
+
+Die Matrix $C$ gibt an, wie viele Ausgangsprodukte notwendig sind um Endprodukte herzustellen:
+\end{flushleft}
+
+\begin{center}
+\begin{tabular}{c|c|c}
+& $E_1$ & $E_2$ \\
+\hline
+M & 14 & 19 \\
+\hline
+Z & 5 & 7 \\
+\hline
+F & 3 & 6
+\end{tabular}
+\end{center}
+
+\begin{flushleft}
+Wenn man nun wissen möchte, wie viele Ausgangsprodukte notwendig sind, um zum Beispiel ein mal $E_1$ und kein mal $E_2$ herzustellen, kann man die Matrix $C$ mit dem Vektor $\vec{r}$ multiplizieren, der die Anzahl der Ausgangsprodukte abbildet:
+\begin{align}
+    C \cdot \begin{pmatrix} 1 \\ 0 \end{pmatrix}=\begin{pmatrix} 14 \\ 5 \\ 3 \end{pmatrix}
+\end{align}
+
+Um ein mal $E_1$ und kein mal $E_2$ herzustellen braucht man also 14 Milch, 5 Zucker und 3 Früchte.
+\end{flushleft}
+
+\subsection{Inverse Matrizen}
+\begin{flushleft}
+Die Inverse einer Matrix $A$ ist eine andere Matrix $A^{-1}$, mit der die ursprüngliche Matrix $A$ multipliziert werden kann um die Einheitsmatrix zu bekommen.
+Es gilt also:
+\begin{align}
+    A \cdot A^{-1}=E=A^{-1} \cdot A
+\end{align}
+
+Eine Einheitsmatrix der Form 4x4 sieht so aus:
+\begin{align}
+    E^4=\begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 1
+    \end{pmatrix}
+\end{align}
+
+Wenn eine Matrix $B$ mit der Einheitsmatrix $E$ multipliziert wird, ist das Ergebnis wieder die Matrix $B$:
+\begin{align}
+    B \cdot E=B
+\end{align}
+
+Inverse Matrizen sind demnach sehr nützlich um Matrizengleichungen zu lösen:
+\begin{align}
+    A \cdot B&=C \\
+    A^{-1} \cdot A \cdot B&=A^{-1} \cdot C
+    \quad (A^{-1} \cdot A=E) \\
+    E \cdot B&=A^{-1} \cdot C \\
+    B&=A^{-1} \cdot C
 \end{align}
 \end{flushleft}
